@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.test'
+version 'unspecified'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.5.5'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+}

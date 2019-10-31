@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+
+    <script type="text/javascript" src="layui/layui.js"></script>
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>创建人物</legend>
+</fieldset>
+
+
+<form action="" id="form1">
+    <div class="layui-form-item">
+        <label class="layui-form-label">探员编号</label>
+        <div class="layui-input-block">
+            <input type="text" name="userid"	id="userid" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">探员姓名</label>
+        <div class="layui-input-block">
+            <input type="text" name="name"	id="name" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">探员年龄</label>
+        <div class="layui-input-block">
+            <input type="text" name="age"	id="age" class="layui-input">
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">探员性别</label>
+        <div class="layui-input-block">
+            <select name="sex"  id="sex" size="1">
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                    <option value="2" selected="">其他</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">探员职业</label>
+        <div class="layui-input-block">
+            <select name="profession"  id="profession" size="1">
+                <option value="0">工农阶级</option>
+                <option value="1">无产阶级</option>
+                <option value="2" selected="">军人阶级</option>
+                <option value="3">资本家阶级</option>
+                <option value="4">科技工作者</option>
+                <option value="5">其他</option>
+
+            </select>
+        </div>
+    </div>
+
+
+
+    <button id="btn" class="layui-btn layui-btn-normal" type="button">确认</button>
+
+</form>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>探员小卡片</legend>
+</fieldset>
+
+
+
+<div>
+    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">个人信息</fieldset></h3>
+</div>
+<table id="tb1" class="layui-table">
+    <thead id="thead1">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>性向</th>
+        <th>职业</th>
+        <th>出生地</th>
+        <th>产地</th>
+    </tr>
+    </thead>
+    <tbody id="tbody1">
+
+    </tbody>
+</table>
+<div>
+    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">属性值</fieldset></h3>
+</div>
+<table id="tb1" class="layui-table">
+    <thead id="thead1">
+    <tr>
+        <th>力量</th>
+        <th>敏捷</th>
+        <th>教育</th>
+        <th>体质</th>
+        <th>魅力</th>
+        <th>意志</th>
+        <th>体型</th>
+        <th>智力/灵感</th>
+        <th>幸运</th>
+        <th>CueerentHP/HP</th>
+        <th>CueerentMP/MP</th>
+        <th>CueerentSAN/SAN</th>
+    </tr>
+    </thead>
+    <tbody id="tbody2">
+
+    </tbody>
+</table>
+<div>
+    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">技能值</fieldset></h3>
+</div>
+<table id="tb1" class="layui-table">
+    <thead id="thead1">
+    <tr>
+        <th>技能名</th>
+        <th>技能等级</th>
+        <th>技能名</th>
+        <th>技能等级</th>
+        <th>技能名</th>
+        <th>技能等级</th>
+        <th>技能名</th>
+        <th>技能等级</th>
+    </tr>
+    </thead>
+    <tbody id="tbody3">
+
+    </tbody>
+</table>
+
+<div>
+    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">个人介绍</fieldset></h3>
+</div>
+<table id="tb1" class="layui-table">
+    <thead id="thead1">
+    <tr>
+        <th>武器装备</th>
+        <th>克苏鲁见识</th>
+        <th>重要人物</th>
+        <th>害怕/狂热</th>
+        <th>背景故事</th>
+    </tr>
+    </thead>
+    <tbody id="tbody4">
+
+    </tbody>
+</table>
+
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="layer/2.4/layer.js"></script>
+<script type="text/javascript" src="js/jquery.serializejson.min.js"></script>
+<script >
+
+
+    $(function(){
+
+        $("#btn").on('click',function(e){
+            var obj=$('#form1').serializeJSON();//将表单中元素转换为JSON对象
+            var pstr=JSON.stringify(obj);//JSON字符串
+            console.log("字符串"+pstr)
+            $.ajax({
+                method:'post',
+                url:'/user/create',
+                data:pstr,
+                success:function(data){
+                    alert(data)
+
+                },
+                dataType:'text',
+                contentType:'application/json',
+                xhrFileds:{
+                    withCredentials:true
+                }
+            });
+        })
+
+    });
+
+</script>
+
+</body>
+</html>
