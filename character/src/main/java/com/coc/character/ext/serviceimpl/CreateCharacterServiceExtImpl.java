@@ -81,7 +81,7 @@ public class CreateCharacterServiceExtImpl implements CreateCharacterServiceExt 
         int potential =getpotential(sk.getProfession(),str,agl,edu,cha,bar);
 
         skill.setProfession(sk.getProfession());
-        skill.setpotential(potential);
+        skill.setPotential(potential);
         skill.setInterest(interest);
         skill.setHp(hp);
         skill.setCurrenthp(hp);

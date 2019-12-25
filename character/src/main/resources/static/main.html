@@ -85,7 +85,9 @@
         <th>性向</th>
         <th>职业</th>
         <th>出生地</th>
-        <th>产地</th>
+        <th>驻地</th>
+        <th>专业点</th>
+        <th>兴趣点</th>
     </tr>
     </thead>
     <tbody id="tbody1">
@@ -95,8 +97,8 @@
 <div>
     <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">属性值</fieldset></h3>
 </div>
-<table id="tb1" class="layui-table">
-    <thead id="thead1">
+<table id="tb2" class="layui-table">
+    <thead id="thead2">
     <tr>
         <th>力量</th>
         <th>敏捷</th>
@@ -117,10 +119,10 @@
     </tbody>
 </table>
 <div>
-    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">技能值</fieldset></h3>
+    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">技能值（+）</fieldset></h3>
 </div>
-<table id="tb1" class="layui-table">
-    <thead id="thead1">
+<table id="tb3" class="layui-table">
+    <thead id="thead3">
     <tr>
         <th>技能名</th>
         <th>技能等级</th>
@@ -140,8 +142,8 @@
 <div>
     <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">个人介绍</fieldset></h3>
 </div>
-<table id="tb1" class="layui-table">
-    <thead id="thead1">
+<table id="tb4" class="layui-table">
+    <thead id="thead4">
     <tr>
         <th>武器装备</th>
         <th>克苏鲁见识</th>
@@ -174,6 +176,9 @@
                 data:pstr,
                 success:function(data){
                     alert(data)
+                    query()
+
+
 
                 },
                 dataType:'text',
@@ -185,6 +190,203 @@
         })
 
     });
+    function query() {
+        var obj=$('#form1').serializeJSON();//将表单中元素转换为JSON对象
+        var pstr=JSON.stringify(obj);//JSON字符串
+        console.log("字符串"+pstr)
+        $.ajax({
+            method:'post',
+            url:'/query/person',
+            data:pstr,
+            success:function(data){
+                var data= eval('(' + data + ')');
+
+                var tr='';
+                var tr1='';
+                var tr2='';
+                var tr3='';
+                var tr4='';
+                var tr5='';
+                var tr6='';
+                var tr7='';
+                var tr8='';
+                var tr9='';
+                var tr10='';
+                var tr11='';
+                tr+=`
+					<tr>
+					<td>${data.name}</td>
+					<td>${data.age}</td>
+					<td>${data.sex}</td>
+					<td>${data.sex}</td>
+					<td>${data.profession}</td>
+					<td>半人马α座</td>
+					<td>中国</td>
+					<td>${data.potential}</td>
+					<td>${data.interest}</td>
+					</tr>
+					`
+                tr1+=`
+					<tr>
+					<td>${data.str}</td>
+					<td>${data.agl}</td>
+					<td>${data.edu}</td>
+					<td>${data.phy}</td>
+					<td>${data.cha}</td>
+					<td>${data.vol}</td>
+					<td>${data.bod}</td>
+					<td>${data.bra}</td>
+					<td>${data.luck}</td>
+					<td>${data.currenthp}/${data.hp}</td>
+					<td>${data.currentmp}/${data.mp}</td>
+					<td>${data.currentsan}/${data.san}</td>
+					</tr>
+					`
+                tr2+=`
+					<tr>
+					<td>攀爬</td>
+					<td>${data.shin}</td>
+					<td>游泳</td>
+					<td>${data.swim}</td>
+					<td>侦查</td>
+					<td>${data.spy}</td>
+					<td>聆听</td>
+					<td>${data.listen}</td>
+					</tr>
+					`
+                tr3+=`
+					<tr>
+					<td>图书馆使用</td>
+					<td>${data.libaray}</td>
+					<td>交涉</td>
+					<td>${data.negotiate}</td>
+					<td>神秘学</td>
+					<td>${data.occultism}</td>
+					<td>克苏鲁</td>
+					<td>${data.cthulhu}</td>
+					</tr>
+					`
+                tr4+=`
+					<tr>
+					<td>驾驶</td>
+					<td>${data.drive}</td>
+					<td>战斗</td>
+					<td>${data.combat}</td>
+					<td>手枪</td>
+					<td>${data.gun}</td>
+					<td>步械</td>
+					<td>${data.gun}</td>
+					</tr>
+					`
+                tr5+=`
+					<tr>
+					<td>会计</td>
+					<td>${data.accountant}</td>
+					<td>人类学</td>
+					<td>${data.anthropology}</td>
+					<td>估价</td>
+					<td>${data.evaluate}</td>
+					<td>考古学</td>
+					<td>${data.archeology}</td>
+					</tr>
+					`
+                tr6+=`
+					<tr>
+					<td>魅惑</td>
+					<td>${data.charm}</td>
+					<td>计算机使用</td>
+					<td>${data.computer}</td>
+					<td>信用</td>
+					<td>${data.credit}</td>
+					<td>乔装</td>
+					<td>${data.dress}</td>
+					</tr>
+					`
+                tr7+=`
+					<tr>
+					<td>闪避</td>
+					<td>${data.dodge}</td>
+					<td>电气学</td>
+					<td>${data.electrical}</td>
+					<td>机械学</td>
+					<td>${data.mechanology}</td>
+					<td>法律</td>
+					<td>${data.law}</td>
+					</tr>
+					`
+                tr8+=`
+					<tr>
+					<td>锁匠</td>
+					<td>${data.locksmith}</td>
+					<td>潜行</td>
+					<td>${data.sneak}</td>
+					<td>医学</td>
+					<td>${data.medical}</td>
+					<td>外语</td>
+					<td>${data.foreign}</td>
+					</tr>
+					`
+                tr9+=`
+					<tr>
+					<td>领航</td>
+					<td>${data.pilot}</td>
+					<td>心理学</td>
+					<td>${data.psychology}</td>
+					<td>追踪</td>
+					<td>${data.trace}</td>
+					<td>急救</td>
+					<td>${data.aid}</td>
+					</tr>
+					`
+                tr10+=`
+					<tr>
+					<td>重型器械驾驶</td>
+					<td>${data.heavy}</td>
+					<td>妙手</td>
+					<td>${data.steal}</td>
+					<td>恐吓</td>
+					<td>${data.threaten}</td>
+					<td>化学</td>
+					<td>${data.chemistry}</td>
+					</tr>
+					`
+                tr11+=`
+					<tr>
+					<td>自定义</td>
+					<td>${data.heavy}</td>
+					<td>自定义</td>
+					<td>${data.heavy}</td>
+					<td>自定义</td>
+					<td>${data.heavy}</td>
+					<td>自定义</td>
+					<td>${data.heavy}</td>
+					</tr>
+					`
+                $('#tbody1').append(tr);
+                $('#tbody2').append(tr1);
+                $('#tbody3').append(tr2);
+                $('#tbody3').append(tr3);
+                $('#tbody3').append(tr4);
+                $('#tbody3').append(tr5);
+                $('#tbody3').append(tr6);
+                $('#tbody3').append(tr7);
+                $('#tbody3').append(tr8);
+                $('#tbody3').append(tr9);
+                $('#tbody3').append(tr10);
+                $('#tbody3').append(tr11);
+
+            },
+            dataType:'text',
+            contentType:'application/json',
+            xhrFileds:{
+                withCredentials:true
+            }
+        });
+    }
+
+
+
+
 
 </script>
 

@@ -36,5 +36,24 @@ public class CopyUtils {
     public static void copyProperties(Object src, Object target) {
         BeanUtils.copyProperties(src, target, getNullPropertyNames(src));
     }
-
+    /**
+     * 转换成目标对象
+     * @param src
+     * @param tarClass
+     * @param <T>
+     * @return
+     */
+    public static <T> T convertObject(Object src, Class<T> tarClass){
+        if (null == src){
+            return null;
+        }
+        T t=null;
+        try {
+            t = tarClass.newInstance();
+            copyProperties(src,t);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+        return t;
+    }
 }
