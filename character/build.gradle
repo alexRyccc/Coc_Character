@@ -6,12 +6,12 @@ plugins {
 
 
 group = 'com.coc'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 jar {
     baseName = 'COC'
-    version = '0.0.1'
+    version = '0.0.2'
     manifest {
         attributes "Manifest-Version": 1.0,
                 'Main-Class': 'com.chen.GradleDemoApplication'
