@@ -1,5 +1,7 @@
 package com.coc.character.pojo;
 
+import com.coc.character.Util.GJRandom.gjRandoms;
+
 import java.util.Random;
 
 public class User {
@@ -426,16 +428,19 @@ public class User {
         this.age = age;
     }
 
+    gjRandoms gj =new gjRandoms();
+
     public Integer common(){
-        Random r = new Random();
-        int rx = r.nextInt(15);
-        return (rx+3)*5;
+
+        int rx = 9-gj.doRamdon();
+        return 5*rx;
     }
 
     public Integer special(){
         Random r = new Random();
-        int rx = r.nextInt(10);
-        return (rx+8)*5;
+        int rxt =r.nextInt(10);
+        int rx = 9-gj.doRamdon();
+        return rx*9+rxt;
     }
     public Integer luck(){
         Random r = new Random();
