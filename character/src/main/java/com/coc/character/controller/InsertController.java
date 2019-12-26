@@ -1,10 +1,12 @@
 package com.coc.character.controller;
 
+import com.coc.character.Util.redis.RedisUtil;
 import com.coc.character.ext.service.CreateCharacterServiceExt;
 import com.coc.character.pojo.AddUser;
 import com.coc.character.pojo.People;
 import com.coc.character.pojo.Skill;
 import com.coc.character.pojo.User;
+import com.coc.character.pojo.req.PersonReq;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,18 +26,17 @@ public class InsertController {
     @Resource(name = "createCharacterExt")
     CreateCharacterServiceExt createCharacterServiceExt;
 
-    //private final static Logger logger = (Logger) LoggerFactory.getLogger(InsertController .class);
-    /*@GetMapping("/create/{name}/{age}/{sex}/{userid}/{profession}")
-    public People createCharacter(@PathVariable("name")String name,@PathVariable("age")Integer age,@PathVariable("sex")String sex,
-                                @PathVariable("userid")String userid,@PathVariable("profession")String profession){
-        User users =createUsers(name,age,sex,userid);
-        Skill skill =createSkill(profession);
-        People user1 =createCharacterServiceExt.insertCharacter(users,skill);
-        return user1;
-    }*/
 
+    @Resource
+    private RedisUtil redisUtil;
+
+    /**
+     * 创建人物
+     * @param addUser
+     * @return
+     */
     @PostMapping("/create")
-    public ResponseEntity<?> createCharacter(@RequestBody AddUser addUser){
+    public ResponseEntity<?> createCharacter(@RequestBody PersonReq addUser){
         int age =Integer.parseInt(addUser.getAge());
         String name =addUser.getName();
         String sex =addUser.getSex();
@@ -45,19 +46,21 @@ public class InsertController {
         Skill skill =createSkill(profession);
 
         ResponseEntity<String> res;
+
         try {
             People user1 =createCharacterServiceExt.insertCharacter(users,skill);
+            redisUtil.set("potential"+userid,user1.getPotential(),36000);
+            redisUtil.set("interest"+userid,user1.getInterest(),36000);
             res= new ResponseEntity<>("人物创建成功", HttpStatus.OK);
         } catch (Exception e) {
             // TODO: handle exception
             res = new ResponseEntity<>("人物创建失败", HttpStatus.OK);
+        }finally {
+
+
         }
         return res;
 
-    }
-    @GetMapping("hello")
-    public String hello(){
-        return "Hello world";
     }
 
     private User createUsers(String name,int age,String sex,String userid){

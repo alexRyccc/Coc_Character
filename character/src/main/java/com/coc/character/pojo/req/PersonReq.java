@@ -3,7 +3,7 @@ package com.coc.character.pojo.req;
 /**
  * @author ran_ych
  * @create 2019-12-25  11:07
- * @desc
+ * @desc 外围传入参数
  */
 public class PersonReq {
     private String userid;

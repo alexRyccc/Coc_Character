@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>COC人物车卡</title>
     <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
 
     <script type="text/javascript" src="layui/layui.js"></script>
@@ -176,7 +176,11 @@
                 data:pstr,
                 success:function(data){
                     alert(data)
-                    query()
+                    if(data=='人物创建成功'){
+                        query()
+                        btn_disabled()
+                    }
+
 
 
 
@@ -245,7 +249,7 @@
                 tr2+=`
 					<tr>
 					<td>攀爬</td>
-					<td>${data.shin}</td>
+					<td>${data.shin} <button type="button" id="button_shin_up" class="layui-btn layui-btn-normal layui-btn-sm" ><i class="layui-icon  layui-icon-up">+5</i></button><button type="button" id="button_shin_down" class="layui-btn layui-btn-danger layui-btn-sm  "><i class="layui-icon layui-icon-down">-5</i></button></td>
 					<td>游泳</td>
 					<td>${data.swim}</td>
 					<td>侦查</td>
@@ -375,6 +379,7 @@
                 $('#tbody3').append(tr10);
                 $('#tbody3').append(tr11);
 
+
             },
             dataType:'text',
             contentType:'application/json',
@@ -383,9 +388,13 @@
             }
         });
     }
+    function btn_disabled() {
+    $(document).ready(function() {
+        $("#btn").attr("disabled","true");
+        $("#btn").css({'background-color' : 'gray'});
 
-
-
+    });
+    }
 
 
 </script>

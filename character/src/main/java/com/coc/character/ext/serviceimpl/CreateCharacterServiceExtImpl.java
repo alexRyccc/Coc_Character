@@ -149,4 +149,5 @@ public class CreateCharacterServiceExtImpl implements CreateCharacterServiceExt 
 
         return potential;
     }
+
 }
