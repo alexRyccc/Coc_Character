@@ -429,18 +429,18 @@ public class User {
     }
 
     gjRandoms gj =new gjRandoms();
-
+    Random r = new Random();
     public Integer common(){
-
-        int rx = 9-gj.doRamdon();
+        int rxt =r.nextInt(7)+3;
+        int rx = 9-gj.doRamdon()+rxt;
         return 5*rx;
     }
 
     public Integer special(){
-        Random r = new Random();
-        int rxt =r.nextInt(10);
-        int rx = 9-gj.doRamdon();
-        return rx*9+rxt;
+
+        int rxt =r.nextInt(2)+8;
+        int rx = 9-gj.doRamdon()+rxt;
+        return rx*5;
     }
     public Integer luck(){
         Random r = new Random();

@@ -22,7 +22,6 @@ import javax.annotation.Resource;
  * @desc
  */
 @Service("ModifyServiceImpl")
-@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
 public class ModifyServiceImpl implements ModifyServiceExt {
     private static Logger logger = LoggerFactory.getLogger(CharacterApplication.class);
     @Resource

@@ -1,7 +1,7 @@
 package com.coc.character.ext.service;
 
 import com.coc.character.pojo.Person;
-
+import com.coc.character.pojo.UserPerson;
 
 
 /**
@@ -14,4 +14,6 @@ public interface QueryCharacterExt {
     通过id和姓名查询用户信息
      */
     Person selectByPrimaryKey(Person person);
+
+    UserPerson selectUserPerson(UserPerson userPerson);
 }

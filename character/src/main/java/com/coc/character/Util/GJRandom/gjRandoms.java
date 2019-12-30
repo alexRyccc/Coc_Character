@@ -8,7 +8,7 @@ package com.coc.character.Util.GJRandom;
 public class gjRandoms {
 
     public   int doRamdon() {
-        double[] ds = new double[] { 5.0,5.0,10.0,25.0,30.0,15.0,10.0,1.0,0 };
+        double[] ds = new double[] { 1.0,4.0,10.0,25.0,30.0,15.0,10.0,5.0,0.1 };
         double sum = getSum(ds);
         double last = 0;
         for (int i = 0; i < ds.length; i++) {

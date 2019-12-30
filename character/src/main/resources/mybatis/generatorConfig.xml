@@ -25,22 +25,21 @@
                selectByExampleQueryId="false">
 
         </table>-->
-       <!-- <table tableName="user" domainObjectName="UserDo" enableCountByExample="false"
+        <table tableName="userperson" domainObjectName="UserPersonDo" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <columnOverride column="name" property="name"/>
-            <columnOverride column="str" property="str"/>
-            <columnOverride column="agl" property="agl"/>
-            <columnOverride column="edu" property="edu"/>
-            <columnOverride column="phy" property="phy"/>
-            <columnOverride column="cha" property="cha"/>
-            <columnOverride column="vol" property="vol"/>
-            <columnOverride column="bod" property="bod"/>
-            <columnOverride column="bra" property="bra"/>
-            <columnOverride column="luck" property="luck"/>
-            <columnOverride column="sex" property="sex"/>
-            <columnOverride column="age" property="age"/>
-            <columnOverride column="userid" property="userid"/>
-        </table>-->
+            <columnOverride column="username" property="username"/>
+            <columnOverride column="password" property="password"/>
+            <columnOverride column="creattime" property="creattime"/>
+            <columnOverride column="uname" property="uname"/>
+            <columnOverride column="phone" property="phone"/>
+            <columnOverride column="vip" property="vip"/>
+            <columnOverride column="levels" property="levels"/>
+            <columnOverride column="cardid1" property="cardid1"/>
+            <columnOverride column="cardid1" property="cardid1"/>
+            <columnOverride column="cardid1" property="cardid1"/>
+            <columnOverride column="cardid1" property="cardid1"/>
+            <columnOverride column="cardid1" property="cardid1"/>
+        </table>
     </context>
 </generatorConfiguration>

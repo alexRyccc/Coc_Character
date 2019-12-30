@@ -19,7 +19,6 @@ import javax.annotation.Resource;
  * @desc
  */
 @Service("createCharacterExt")
-@Transactional(readOnly = true, propagation = Propagation.REQUIRED) // Propagation事务传播行为
 public class CreateCharacterServiceExtImpl implements CreateCharacterServiceExt {
     @Resource
     private CreateCharacterService createCharacterService;
