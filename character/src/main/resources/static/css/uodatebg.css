@@ -1,0 +1,38 @@
+html,
+body {
+    background: #001c3f;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border: 0;
+    overflow: hidden;
+    /*  Disable scrollbars */
+    
+    display: block;
+    /* No floating content on sides */
+}
+.container::after {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABxJREFUeNpi+P//PwMIA8FNJgYkwAgSgXEAAgwA8BoHsEna1aoAAAAASUVORK5CYII=);
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    background-color: rgba(0, 0, 0, 0);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.container {
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+}
+#bg {
+    -webkit-filter: blur(35px);
+    filter: blur(35px);
+}
