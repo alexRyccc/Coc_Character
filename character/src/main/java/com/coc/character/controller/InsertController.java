@@ -8,6 +8,8 @@ import com.coc.character.pojo.Skill;
 import com.coc.character.pojo.User;
 import com.coc.character.pojo.req.PersonReq;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,14 +24,21 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/user")
+@RefreshScope
 public class InsertController {
     @Resource(name = "createCharacterExt")
     CreateCharacterServiceExt createCharacterServiceExt;
 
+    @Value("${username:ryc}")
+    private String username;
 
     @Resource
     private RedisUtil redisUtil;
 
+    @RequestMapping("/username")
+    public String get() {
+        return username;
+    }
     /**
      * 创建人物
      * @param addUser

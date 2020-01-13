@@ -58,6 +58,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '1.5.8.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.2.0.RELEASE'
+    compile group: 'com.alibaba.cloud', name: 'spring-cloud-starter-alibaba-nacos-discovery', version: '2.1.0.RELEASE'
+    compile group: 'com.alibaba.cloud', name: 'spring-cloud-starter-alibaba-nacos-config', version: '2.1.1.RELEASE'
 }
 
 def getDbProperties = {
