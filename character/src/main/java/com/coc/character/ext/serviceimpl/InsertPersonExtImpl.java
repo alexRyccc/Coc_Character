@@ -1,8 +1,10 @@
 package com.coc.character.ext.serviceimpl;
 
+import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.ext.service.InsertPersonExt;
 import com.coc.character.pojo.UserPerson;
 import com.coc.character.service.InsertPerson;
+import com.coc.character.ext.service.SmsServiceExt;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,6 +19,8 @@ public class InsertPersonExtImpl implements InsertPersonExt {
 
     @Resource
     private InsertPerson insertPerson;
+    @Resource
+    private SmsServiceExt smsServiceExt;
 
     /**
      * 新增用户

@@ -1,9 +1,12 @@
 package com.coc.character.controller;
 
 import com.coc.character.Util.CopyUtils;
+import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.ext.service.InsertPersonExt;
+import com.coc.character.pojo.PhoneCheak;
 import com.coc.character.pojo.UserPerson;
 import com.coc.character.pojo.req.UserPersonReq;
+import com.coc.character.ext.service.SmsServiceExt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -27,6 +30,9 @@ public class RegisterController {
     @Resource(name = "insertpersonextimpl")
     private InsertPersonExt insertPersonExt;
 
+    @Resource(name ="smsserviceimpl")
+    private SmsServiceExt smsServiceExt;
+
     private static Logger logger = LoggerFactory.getLogger(queryController.class);
 
     @PostMapping("/createnew")
@@ -41,6 +47,27 @@ public class RegisterController {
             res=new ResponseEntity<String>("密码不合规矩，长度控制在6-12位之间", HttpStatus.OK);
         }else if(result ==-3){
             res=new ResponseEntity<String>("手机号有误", HttpStatus.OK);
+        }
+
+        return res;
+    }
+
+    /**
+     * 短信下发
+     */
+    @PostMapping ("/phone")
+    private ResponseEntity<?> getPhone(@RequestBody UserPersonReq register){
+
+        PhoneCheak user = CopyUtils.convertObject(register, PhoneCheak.class);
+        String sms =smsServiceExt.sendMessage(user);
+        ResponseEntity<String> res=new ResponseEntity<String>("短信下发成功", HttpStatus.OK);
+
+        if (sms.equals(SMSHelper.SMS_REDUNDANCE)){
+            res=new ResponseEntity<String>("短信频次超频,一天只能发送三次", HttpStatus.OK);
+        }else if(sms.equals(SMSHelper.SMS_INTERVAL_SHORT)){
+            res=new ResponseEntity<String>("短信下发间隔过短", HttpStatus.OK);
+        }else if(sms.equals(SMSHelper.SMS_FREE_TRUE)){
+            res=new ResponseEntity<String>("免短信验证通过", HttpStatus.OK);
         }
 
         return res;
