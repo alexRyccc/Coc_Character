@@ -15,6 +15,7 @@ public interface SMSHelper {
 
     //免短信检查
     String SMS_FREE ="0";
+    String NO_SMS_FREE ="1";
     //免短信验证通过
     String SMS_FREE_TRUE ="smstrue";
 
