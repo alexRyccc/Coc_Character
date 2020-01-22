@@ -7,7 +7,7 @@ import com.coc.character.pojo.UserPerson;
  * @create 2020-01-22  20:46
  * @desc
  */
-public interface SignServiceExt {
+public interface SMSSignServiceExt {
     /**
      * 用户登录
      * @param userPerson

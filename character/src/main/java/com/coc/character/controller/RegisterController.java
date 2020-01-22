@@ -96,7 +96,7 @@ public class RegisterController {
     /**
      * 短信下发登录
      */
-    @PostMapping ("/sign")
+    @PostMapping ("/smssign")
     private ResponseEntity<?> SignPerson (@RequestBody UserPersonReq register){
         UserPerson user = CopyUtils.convertObject(register, UserPerson.class);
         int result =insertPersonExt.insertSelective(user);

@@ -3,7 +3,7 @@ package com.coc.character.ext.serviceimpl;
 import com.coc.character.Util.CopyUtils;
 import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.controller.queryController;
-import com.coc.character.ext.service.SignServiceExt;
+import com.coc.character.ext.service.SMSSignServiceExt;
 import com.coc.character.ext.service.SmsServiceExt;
 import com.coc.character.pojo.PhoneCheak;
 import com.coc.character.pojo.UserPerson;
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
  * @create 2020-01-22  20:45
  * @desc
  */
-public class SignServiceIExtmpl implements SignServiceExt {
+public class SMSSignServiceIExtmpl implements SMSSignServiceExt {
     private static Logger logger = LoggerFactory.getLogger(queryController.class);
     private SmsServiceExt smsServiceExt;
     /**
