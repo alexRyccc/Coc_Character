@@ -1,6 +1,6 @@
 package com.coc.character.ext.service;
 
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 
 /**
  * @author ran_ych
@@ -12,5 +12,5 @@ public interface SMSSignServiceExt {
      * 用户登录
      * @param userPerson
      */
-    int SignPerson (UserPerson userPerson);
+    int SignPerson (Userperson userPerson);
 }

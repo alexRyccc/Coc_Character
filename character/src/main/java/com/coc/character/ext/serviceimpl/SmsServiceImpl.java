@@ -5,7 +5,6 @@ import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.Util.redis.RedisUtil;
 import com.coc.character.controller.queryController;
 import com.coc.character.pojo.PhoneCheak;
-import com.coc.character.pojo.UserPerson;
 import com.coc.character.ext.service.SmsServiceExt;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;

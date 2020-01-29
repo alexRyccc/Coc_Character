@@ -6,7 +6,7 @@ import com.coc.character.controller.queryController;
 import com.coc.character.ext.service.SMSSignServiceExt;
 import com.coc.character.ext.service.SmsServiceExt;
 import com.coc.character.pojo.PhoneCheak;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +24,7 @@ public class SMSSignServiceIExtmpl implements SMSSignServiceExt {
      * @param userPerson
      */
     @Override
-    public int SignPerson(UserPerson userPerson) {
+    public int SignPerson(Userperson userPerson) {
         int  c =1;
         if ((c =checkMassger(userPerson))!=1){
             return  c;
@@ -37,7 +37,7 @@ public class SMSSignServiceIExtmpl implements SMSSignServiceExt {
 
         }
 
-    private int checkMassger(UserPerson record) {
+    private int checkMassger(Userperson record) {
         int c = 1;
         if (!record.haveTruePassword()) {
             c = -2;

@@ -4,7 +4,7 @@ import com.coc.character.Util.CopyUtils;
 import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.ext.service.InsertPersonExt;
 import com.coc.character.pojo.PhoneCheak;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 import com.coc.character.pojo.req.UserPersonReq;
 import com.coc.character.ext.service.SmsServiceExt;
 import org.slf4j.Logger;
@@ -37,7 +37,7 @@ public class RegisterController {
 
     @PostMapping("/createnew")
     public ResponseEntity<?> createCharacter(@RequestBody UserPersonReq register){
-        UserPerson user = CopyUtils.convertObject(register, UserPerson.class);
+        Userperson user = CopyUtils.convertObject(register, Userperson.class);
         int result =insertPersonExt.insertSelective(user);
         ResponseEntity<String> res=new ResponseEntity<String>("注册成功", HttpStatus.OK);
 
@@ -98,7 +98,7 @@ public class RegisterController {
      */
     @PostMapping ("/smssign")
     private ResponseEntity<?> SignPerson (@RequestBody UserPersonReq register){
-        UserPerson user = CopyUtils.convertObject(register, UserPerson.class);
+        Userperson user = CopyUtils.convertObject(register, Userperson.class);
         int result =insertPersonExt.insertSelective(user);
         ResponseEntity<String> res=new ResponseEntity<String>("注册成功", HttpStatus.OK);
         if (result==-1){

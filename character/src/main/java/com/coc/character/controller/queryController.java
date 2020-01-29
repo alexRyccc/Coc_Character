@@ -1,10 +1,9 @@
 package com.coc.character.controller;
 
 import com.coc.character.Util.CopyUtils;
-import com.coc.character.ext.service.CreateCharacterServiceExt;
 import com.coc.character.ext.serviceimpl.QueryCharacterExtImpl;
 import com.coc.character.pojo.Person;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 import com.coc.character.pojo.req.PersonReq;
 import com.coc.character.pojo.req.UserPersonReq;
 import com.coc.character.pojo.resp.PersonResp;
@@ -52,7 +51,7 @@ public class queryController {
      */
     @PostMapping ("/sign")
     private ResponseEntity<?> getPerson(@Validated @RequestBody UserPersonReq personReq){
-        UserPerson person = CopyUtils.convertObject(personReq,UserPerson.class);
+        Userperson person = CopyUtils.convertObject(personReq, Userperson.class);
         //将person的值从数据库获取
         person = qry.selectUserPerson(person);
         //将person转为传出的PersonResp

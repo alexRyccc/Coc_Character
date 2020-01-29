@@ -71,8 +71,16 @@
   </sql>
 
   <select id="getselectByPrimaryKey" parameterType="com.coc.character.pojo.Person" resultMap="BaseResultMap">
-    select      A.userid, hp, mp, A.name, potential, interest, shin, swim, spy, listen, libaray, negotiate,     occultism, cthulhu, drive, combat, gun, san, currenthp, currentmp, currentsan, profession,     accountant, anthropology, evaluate, archeology, charm, computer, credit, dress, dodge,     electrical, mechanology, law, locksmith, sneak, medical, B.foreign, pilot, psychology,     trace, aid, heavy, steal, threaten, chemistry, str, agl, edu, phy, cha, vol, bod, bra, luck, sex, age
-    from user A ,skill B
+   SELECT      A.userid, hp, mp, A.name,potential, interest, shin, swim, spy, listen, libaray, negotiate,
+    occultism, cthulhu, drive, combat, gun, san, currenthp, currentmp, currentsan, profession,
+    accountant, anthropology, evaluate, archeology, charm, computer, credit, dress, dodge,
+    electrical, mechanology, law, locksmith, sneak, medical, B.FOREIGN, pilot, psychology,
+    trace, aid, heavy, steal, threaten, chemistry, trick, psychiatrist, naturalist, astronomy,
+    phytology, cryptology, meteorology, engineering, geology, zoology, sword, spear,
+    pistol, crossbow, gunnery, diving, throwing, jump, beasttraining, history, shorthand,
+    falsify, lipread, maintenance, cooking, fire, farming, makesex, musictheory, puzzle,
+    mothertongue, ohterone, othertwo, otherthree, otherfour, otherfive, othersix
+    FROM USER A ,skill B
     where A.userid = #{userid,jdbcType=VARCHAR}
     and A.name = #{name,jdbcType=VARCHAR}
        AND A.userid =B.userid
@@ -177,7 +185,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.coc.character.pojo.User">
+  <update id="updateByPrimaryPerson" parameterType="com.coc.character.pojo.User">
     <!--
      
      

@@ -1,7 +1,6 @@
 package com.coc.character.ext.service;
 
 import com.coc.character.pojo.PhoneCheak;
-import com.coc.character.pojo.UserPerson;
 
 /**
  * @author ran_ych

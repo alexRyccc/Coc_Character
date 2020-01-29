@@ -88,6 +88,8 @@ public class CreateCharacterServiceExtImpl implements CreateCharacterServiceExt 
         skill.setCurrentmp(mp);
         skill.setSan(san);
         skill.setCurrentsan(san);
+        skill.setMothertongue(edu);
+        skill.setDodge(agl/2);
 
 
         character.setStr(str);

@@ -1,6 +1,6 @@
 package com.coc.character.ext.service;
 
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 
 /**
  * @author ran_ych
@@ -12,5 +12,5 @@ public interface InsertPersonExt {
      *新增用户
      * @mbg.generated
      */
-    int insertSelective(UserPerson record);
+    int insertSelective(Userperson record);
 }

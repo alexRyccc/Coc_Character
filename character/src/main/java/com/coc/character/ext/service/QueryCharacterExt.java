@@ -1,7 +1,7 @@
 package com.coc.character.ext.service;
 
 import com.coc.character.pojo.Person;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 
 
 /**
@@ -15,5 +15,5 @@ public interface QueryCharacterExt {
      */
     Person selectByPrimaryKey(Person person);
 
-    UserPerson selectUserPerson(UserPerson userPerson);
+    Userperson selectUserPerson(Userperson userPerson);
 }

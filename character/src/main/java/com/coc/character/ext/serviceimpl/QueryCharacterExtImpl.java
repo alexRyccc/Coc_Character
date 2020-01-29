@@ -4,7 +4,7 @@ import com.coc.character.ext.service.QueryCharacterExt;
 import com.coc.character.mapper.PersonMapper;
 import com.coc.character.mapper.UserPersonDoMapper;
 import com.coc.character.pojo.Person;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,7 +28,7 @@ public class QueryCharacterExtImpl implements QueryCharacterExt {
     }
 
     @Override
-    public UserPerson selectUserPerson(UserPerson userPerson) {
+    public Userperson selectUserPerson(Userperson userPerson) {
         return userPersonDoMapper.selectUserPerson(userPerson);
     }
 }

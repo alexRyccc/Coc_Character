@@ -1,7 +1,7 @@
 package com.coc.character.serviceimpl;
 
 import com.coc.character.mapper.UserPersonDoMapper;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 import com.coc.character.service.InsertPerson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class InsertPersonImpl implements InsertPerson {
      * 新增用户
      */
     @Override
-    public int insertSelective(UserPerson record) {
+    public int insertSelective(Userperson record) {
         return users.insertSelective(record);
     }
 }

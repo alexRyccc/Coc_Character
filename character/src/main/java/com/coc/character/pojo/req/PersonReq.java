@@ -12,6 +12,25 @@ public class PersonReq {
     private String age;
     private String sex;
 
+    private String birthplace;
+    private  String nationality;
+
+    public String getBirthplace() {
+        return birthplace;
+    }
+
+    public void setBirthplace(String birthplace) {
+        this.birthplace = birthplace;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
     public String getUserid() {
         return userid;
     }

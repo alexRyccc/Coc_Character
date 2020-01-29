@@ -1,8 +1,7 @@
 package com.coc.character.ext.serviceimpl;
 
-import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.ext.service.InsertPersonExt;
-import com.coc.character.pojo.UserPerson;
+import com.coc.character.pojo.Userperson;
 import com.coc.character.service.InsertPerson;
 import com.coc.character.ext.service.SmsServiceExt;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class InsertPersonExtImpl implements InsertPersonExt {
      * @mbg.generated
      */
     @Override
-    public int insertSelective(UserPerson record) {
+    public int insertSelective(Userperson record) {
         int  c =1;
         if ((c =checkMassger(record))!=1){
             return  c;
@@ -41,7 +40,7 @@ public class InsertPersonExtImpl implements InsertPersonExt {
         return c;
     }
 
-    private int checkMassger(UserPerson record){
+    private int checkMassger(Userperson record){
         int c =1;
         if(!record.haveTruePassword()){
             c=-2;

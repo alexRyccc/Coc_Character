@@ -32,6 +32,18 @@
             <input type="number" name="age"	id="age" class="layui-input">
         </div>
     </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">国籍</label>
+        <div class="layui-input-block">
+            <input type="text" name="nationality"	id="nationality" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">居住地</label>
+        <div class="layui-input-block">
+            <input type="text" name="birthplace"	id="birthplace" class="layui-input">
+        </div>
+    </div>
 
 
 
@@ -84,8 +96,8 @@
         <th>性别</th>
         <th>性向</th>
         <th>职业</th>
-        <th>出生地</th>
-        <th>驻地</th>
+        <th>国籍</th>
+        <th>现居地</th>
         <th>专业点</th>
         <th>兴趣点</th>
     </tr>
@@ -217,6 +229,15 @@
                 var tr9='';
                 var tr10='';
                 var tr11='';
+                var tr12='';
+                var tr13='';
+                var tr14='';
+                var tr15='';
+                var tr16='';
+                var tr17='';
+                var tr18='';
+                var tr19='';
+
                 tr+=`
 					<tr>
 					<td>${data.name}</td>
@@ -224,8 +245,8 @@
 					<td>${data.sex}</td>
 					<td>${data.sex}</td>
 					<td>${data.profession}</td>
-					<td>半人马α座</td>
-					<td>中国</td>
+					<td>${data.nationality}</td>
+					<td>${data.birthplace}</td>
 					<td>${data.potential}</td>
 					<td>${data.interest}</td>
 					</tr>
@@ -248,122 +269,232 @@
 					`
                 tr2+=`
 					<tr>
-					<td>攀爬</td>
-					<td>${data.shin} <button type="button" id="button_shin_up" class="layui-btn layui-btn-normal layui-btn-sm" ><i class="layui-icon  layui-icon-up">+5</i></button><button type="button" id="button_shin_down" class="layui-btn layui-btn-danger layui-btn-sm  "><i class="layui-icon layui-icon-down">-5</i></button></td>
-					<td>游泳</td>
-					<td>${data.swim}</td>
+
 					<td>侦查</td>
 					<td>${data.spy}</td>
 					<td>聆听</td>
 					<td>${data.listen}</td>
-					</tr>
-					`
-                tr3+=`
-					<tr>
 					<td>图书馆使用</td>
 					<td>${data.libaray}</td>
-					<td>交涉</td>
-					<td>${data.negotiate}</td>
-					<td>神秘学</td>
-					<td>${data.occultism}</td>
 					<td>克苏鲁</td>
 					<td>${data.cthulhu}</td>
 					</tr>
+
+					`
+                tr3+=`
+<tr>
+                    <td>魅惑</td>
+					<td>${data.charm}</td>
+					<td>恐吓</td>
+					<td>${data.threaten}</td>
+                    <td>说服</td>
+					<td>${data.negotiate}</td>
+					<td>话术</td>
+					<td>${data.trick}</td>
+					<tr>
+
+
+					</tr>
 					`
                 tr4+=`
+<tr>
+                    <td>精神分析</td>
+					<td>${data.psychiatrist}</td>
+                    <td>心理学</td>
+					<td>${data.psychology}</td>
+                    <td>神秘学</td>
+					<td>${data.occultism}</td>
+					<td>博物学</td>
+					<td>${data.naturalist}</td>
 					<tr>
-					<td>驾驶</td>
-					<td>${data.drive}</td>
-					<td>战斗</td>
-					<td>${data.combat}</td>
-					<td>手枪</td>
-					<td>${data.gun}</td>
-					<td>步械</td>
-					<td>${data.gun}</td>
 					</tr>
 					`
                 tr5+=`
-					<tr>
-					<td>会计</td>
-					<td>${data.accountant}</td>
+<tr>
+					<td>天文学</td>
+					<td>${data.stronomy}</td>
+					<td>植物学</td>
+					<td>${data.phytology}</td>
 					<td>人类学</td>
 					<td>${data.anthropology}</td>
-					<td>估价</td>
-					<td>${data.evaluate}</td>
 					<td>考古学</td>
 					<td>${data.archeology}</td>
 					</tr>
 					`
                 tr6+=`
 					<tr>
-					<td>魅惑</td>
-					<td>${data.charm}</td>
-					<td>计算机使用</td>
-					<td>${data.computer}</td>
-					<td>信用</td>
-					<td>${data.credit}</td>
-					<td>乔装</td>
-					<td>${data.dress}</td>
+					<td>密码学</td>
+					<td>${data.cryptology}</td>
+					<td>气象学</td>
+					<td>${data.meteorology}</td>
+					<td>地质学</td>
+					<td>${data.geology}</td>
+					<td>工程学</td>
+					<td>${data.engineering}</td>
 					</tr>
 					`
                 tr7+=`
-					<tr>
-					<td>闪避</td>
-					<td>${data.dodge}</td>
-					<td>电气学</td>
-					<td>${data.electrical}</td>
-					<td>机械学</td>
-					<td>${data.mechanology}</td>
-					<td>法律</td>
-					<td>${data.law}</td>
+                  <tr>
+                    <td>动物学</td>
+					<td>${data.zoology}</td>
+	                <td>格斗（斗殴）</td>
+					<td>${data.combat}</td>
+					<td>格斗（刀剑）</td>
+					<td>${data.sword}</td>
+					<td>格斗（枪矛）</td>
+					<td>${data.spear}</td>
 					</tr>
 					`
                 tr8+=`
 					<tr>
-					<td>锁匠</td>
-					<td>${data.locksmith}</td>
-					<td>潜行</td>
-					<td>${data.sneak}</td>
-					<td>医学</td>
-					<td>${data.medical}</td>
-					<td>外语</td>
-					<td>${data.foreign}</td>
+					<td>射击（手枪)</td>
+					<td>${data.pistol}</td>
+					<td>射击（步枪）</td>
+					<td>${data.gun}</td>
+					<td>射击(弓弩)</td>
+					<td>${data.crossbow}</td>
+					<td>炮术</td>
+					<td>${data.gunnery}</td>
+
 					</tr>
 					`
                 tr9+=`
 					<tr>
-					<td>领航</td>
-					<td>${data.pilot}</td>
-					<td>心理学</td>
-					<td>${data.psychology}</td>
+					<td>潜水</td>
+					<td>${data.diving}</td>
+					<td>投掷</td>
+					<td>${data.throwing}</td>
 					<td>追踪</td>
 					<td>${data.trace}</td>
-					<td>急救</td>
-					<td>${data.aid}</td>
+					<td>闪避</td>
+					<td>${data.dodge}</td>
+
 					</tr>
 					`
                 tr10+=`
 					<tr>
-					<td>重型器械驾驶</td>
-					<td>${data.heavy}</td>
-					<td>妙手</td>
-					<td>${data.steal}</td>
-					<td>恐吓</td>
-					<td>${data.threaten}</td>
-					<td>化学</td>
-					<td>${data.chemistry}</td>
+					<td>潜行</td>
+					<td>${data.sneak}</td>
+					<td>攀爬</td>
+					<td>${data.shin} <button type="button" id="button_shin_up" class="layui-btn layui-btn-normal layui-btn-sm" ><i class="layui-icon  layui-icon-up">+5</i></button><button type="button" id="button_shin_down" class="layui-btn layui-btn-danger layui-btn-sm  "><i class="layui-icon layui-icon-down">-5</i></button></td>
+					<td>游泳</td>
+					<td>${data.swim}</td>
+					<td>跳跃</td>
+					<td>${data.jump}</td>
 					</tr>
 					`
                 tr11+=`
 					<tr>
-					<td>自定义</td>
+					<td>急救</td>
+					<td>${data.aid}</td>
+					<td>医学</td>
+					<td>${data.medical}</td>
+					<td>驯兽</td>
+					<td>${data.beasttraining}</td>
+					<td>妙手</td>
+					<td>${data.steal}</td>
+					</tr>
+					`
+                tr12+=`
+					<tr>
+					<td>锁匠</td>
+					<td>${data.locksmith}</td>
+					<td>会计</td>
+					<td>${data.accountant}</td>
+					<td>历史</td>
+					<td>${data.history}</td>
+					<td>速记</td>
+					<td>${data.shorthand}</td>
+					</tr>
+					`
+                tr13+=`
+					<tr>
+					<td>伪造</td>
+					<td>${data.falsify}</td>
+					<td>读唇</td>
+					<td>${data.lipread}</td>
+					<td>重型器械驾驶</td>
 					<td>${data.heavy}</td>
-					<td>自定义</td>
-					<td>${data.heavy}</td>
-					<td>自定义</td>
-					<td>${data.heavy}</td>
-					<td>自定义</td>
-					<td>${data.heavy}</td>
+					<td>机械维修</td>
+					<td>${data.mechanology}</td>
+					</tr>
+					`
+                tr14+=`
+					<tr>
+					<td>电子学</td>
+					<td>${data.electrical}</td>
+					<td>电气维修</td>
+					<td>${data.maintenance}</td>
+					<td>厨艺</td>
+					<td>${data.cooking}</td>
+                    <td>领航</td>
+					<td>${data.pilot}</td>
+
+					</tr>
+					`
+                tr15+=`
+
+					<tr>
+					 <td>计算机使用</td>
+					<td>${data.computer}</td>
+					<td>法律</td>
+					<td>${data.law}</td>
+					 <td>生火</td>
+					<td>${data.fire}</td>
+					<td>耕作</td>
+					<td>${data.farming}</td>
+
+
+
+					</tr>
+					`
+                tr16+=`
+					<tr>
+					<td>性学</td>
+					<td>${data.makesex}</td>
+					<td>乐理</td>
+					<td>${data.musictheory}</td>
+					<td>估价</td>
+					<td>${data.evaluate}</td>
+					<td>乔装</td>
+					<td>${data.dress}</td>
+					</tr>
+					`
+                tr17+=`
+					<tr>
+					 <td>驾驶</td>
+					<td>${data.drive}</td>
+					<td>信用</td>
+					<td>${data.credit}</td>
+					<td>化学</td>
+					<td>${data.chemistry}</td>
+					<td>迷惑</td>
+					<td>${data.puzzle}</td>
+
+					</tr>
+					`
+                tr18+=`
+					<tr>
+					<td>外语</td>
+					<td>${data.foreign}</td>
+					<td>母语</td>
+					<td>${data.mothertongue}</td>
+					<td>自定义1</td>
+					<td>${data.ohterone}</td>
+					<td>自定义2</td>
+					<td>${data.ohtertwo}</td>
+					</tr>
+					`
+                tr19+=`
+					<tr>
+					<td>自定义3</td>
+					<td>${data.otherthree}</td>
+					<td>自定义4</td>
+					<td>${data.otherfour}</td>
+					<td>自定义5</td>
+					<td>${data.otherfive}</td>
+					<td>自定义6</td>
+					<td>${data.othersix}</td>
 					</tr>
 					`
                 $('#tbody1').append(tr);
@@ -378,6 +509,14 @@
                 $('#tbody3').append(tr9);
                 $('#tbody3').append(tr10);
                 $('#tbody3').append(tr11);
+                $('#tbody3').append(tr12);
+                $('#tbody3').append(tr13);
+                $('#tbody3').append(tr14);
+                $('#tbody3').append(tr15);
+                $('#tbody3').append(tr16);
+                $('#tbody3').append(tr17);
+                $('#tbody3').append(tr18);
+                $('#tbody3').append(tr19);
 
 
             },

@@ -20,12 +20,12 @@
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
         <!-- sql占位符，表示所有的表 -->
 
-        <!--<table tableName="%" enableCountByExample="false" enableUpdateByExample="false"
+       <table tableName="%" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
 
-        </table>-->
-        <table tableName="userperson" domainObjectName="UserPersonDo" enableCountByExample="false"
+        </table>
+        <!--<table tableName="userperson" domainObjectName="UserPersonDo" enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <columnOverride column="username" property="username"/>
@@ -40,6 +40,6 @@
             <columnOverride column="cardid1" property="cardid1"/>
             <columnOverride column="cardid1" property="cardid1"/>
             <columnOverride column="cardid1" property="cardid1"/>
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>
