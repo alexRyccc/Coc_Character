@@ -101,7 +101,8 @@ public class CreateCharacterServiceExtImpl implements CreateCharacterServiceExt 
         character.setBod(bod);
         character.setBra(bar);
         character.setLuck(luck);
-        createCharacterService.addCharacter(character);
+        int a =createCharacterService.addCharacter(character);
+        System.out.println(a);
         createSkillService.addCharacterSkill(skill);
         People user1  =createCharacterService.confirmCharacter(character.getUserid());
 

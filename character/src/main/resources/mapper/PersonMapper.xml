@@ -71,7 +71,8 @@
   </sql>
 
   <select id="getselectByPrimaryKey" parameterType="com.coc.character.pojo.Person" resultMap="BaseResultMap">
-   SELECT      A.userid, hp, mp, A.name,potential, interest, shin, swim, spy, listen, libaray, negotiate,
+   SELECT      birthplace,nationality,A.userid, hp, mp, A.name,potential, interest, shin, swim, spy, listen, libaray, negotiate,
+   str, agl, edu, phy, cha, vol, bod, bra, luck, sex, age,
     occultism, cthulhu, drive, combat, gun, san, currenthp, currentmp, currentsan, profession,
     accountant, anthropology, evaluate, archeology, charm, computer, credit, dress, dodge,
     electrical, mechanology, law, locksmith, sneak, medical, B.FOREIGN, pilot, psychology,

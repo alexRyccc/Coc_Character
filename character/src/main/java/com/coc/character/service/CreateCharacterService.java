@@ -9,7 +9,7 @@ import com.coc.character.pojo.User;
  * @desc
  */
 public interface CreateCharacterService {
-    public void addCharacter(User character);
+    public int addCharacter(User character);
 
     public People confirmCharacter(String userid);
 }

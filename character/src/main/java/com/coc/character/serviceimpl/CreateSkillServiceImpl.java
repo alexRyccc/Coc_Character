@@ -2,6 +2,7 @@ package com.coc.character.serviceimpl;
 
 import com.coc.character.mapper.CreateSkill;
 import com.coc.character.mapper.SkillMapper;
+import com.coc.character.mapper.UserMapper;
 import com.coc.character.pojo.Skill;
 import com.coc.character.service.CreateSkillService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,11 @@ public class CreateSkillServiceImpl implements CreateSkillService {
     @Autowired
     private SkillMapper skillMapper;
 
+
+
     @Override
     public void addCharacterSkill(Skill skill) {
-        createSkill.addCharacterSkill(skill);
+        skillMapper.insertSelective(skill);
     }
 
     @Override

@@ -52,6 +52,8 @@ public class InsertController {
         String userid =addUser.getUserid();
         String profession =addUser.getProfession();
         User users =createUsers(name,age,sex,userid);
+        users.setBirthplace(addUser.getBirthplace());
+        users.setNationality(addUser.getNationality());
         Skill skill =createSkill(profession);
 
         ResponseEntity<String> res;

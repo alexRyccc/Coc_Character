@@ -21,8 +21,8 @@ public class CreateCharacterServiceImpl implements CreateCharacterService {
     CreateCharacters createCharacter;
 
     @Override
-    public void addCharacter(User character) {
-        createCharacter.addCharacter(character);
+    public int addCharacter(User character) {
+      return   createCharacter.addCharacter(character);
 
     }
 
