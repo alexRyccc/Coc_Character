@@ -461,8 +461,9 @@ public class Userperson {
 
     }
 
-    public boolean isUpperCase(char c) {
-        return c >=65 && c <= 90 || c >= 97&& c <= 122;
+    public boolean isUpperCase(char d) {
+        char c =d;
+        return c >=65 && c <= 90 &&c >= 97&& c <= 122;
     }
 
     /**

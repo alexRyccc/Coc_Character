@@ -1,5 +1,6 @@
 package com.coc.character.serviceimpl;
 
+import com.coc.character.Util.DateTimeUtils;
 import com.coc.character.mapper.UserPersonDoMapper;
 import com.coc.character.pojo.Userperson;
 import com.coc.character.service.InsertPerson;
@@ -14,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @desc
  */
 @Service
-@Transactional(readOnly = true, propagation = Propagation.REQUIRED) // Propagation事务传播行为
+@Transactional(propagation = Propagation.REQUIRED) // Propagation事务传播行为
 public class InsertPersonImpl implements InsertPerson {
     @Autowired
     private UserPersonDoMapper users;
@@ -24,6 +25,8 @@ public class InsertPersonImpl implements InsertPerson {
      */
     @Override
     public int insertSelective(Userperson record) {
+        record.setLevels(0);
+        record.setRmk("注册时间："+ DateTimeUtils.getCurrentLocalDateTime());
         return users.insertSelective(record);
     }
 }
