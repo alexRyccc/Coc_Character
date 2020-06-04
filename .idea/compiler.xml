@@ -10,11 +10,5 @@
         <module name="createuser" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CharacterCard_main" target="1.8" />
-      <module name="CharacterCard_test" target="1.8" />
-      <module name="Test1_main" target="1.8" />
-      <module name="Test1_test" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

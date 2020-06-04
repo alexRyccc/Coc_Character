@@ -2,7 +2,6 @@ package com.coc.character.ext.serviceimpl;
 
 import com.coc.character.Util.CopyUtils;
 import com.coc.character.Util.enums.SMSHelper;
-import com.coc.character.controller.queryController;
 import com.coc.character.ext.service.SMSSignServiceExt;
 import com.coc.character.ext.service.SmsServiceExt;
 import com.coc.character.pojo.PhoneCheak;
@@ -16,7 +15,7 @@ import org.slf4j.LoggerFactory;
  * @desc
  */
 public class SMSSignServiceIExtmpl implements SMSSignServiceExt {
-    private static Logger logger = LoggerFactory.getLogger(queryController.class);
+    private static Logger logger = LoggerFactory.getLogger(SMSSignServiceIExtmpl.class);
     private SmsServiceExt smsServiceExt;
     /**
      * 用户登录

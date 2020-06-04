@@ -6,9 +6,20 @@ import java.util.Map;
 
 class test {
     public static void main(String[] args) {
-        test t =new test();
-        int [] i =new int[]{0,0,1,1,1};
-        System.out.println(t.numRabbits(i));
+        int[] a =new int[]{1,3,5,7,9};
+        System.out.println(code(a));
+    }
+
+    private static int code(int[] i){
+        for (int a:i
+             ) {
+            if(a%2==0){
+                return a;
+            }
+        }
+
+            return 2;
+
     }
 
         public int numRabbits(int[] answers) {

@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PersonMapper {
      public Person getselectByPrimaryKey(Person person);
 
+     public  Person getselect();
 
+     public  int getNumber(int id);
 
 }

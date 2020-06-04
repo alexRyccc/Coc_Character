@@ -7,11 +7,11 @@ package com.coc.character.Util.enums;
  */
 public interface SMSHelper {
     //短信编号
-    String SMS_NUMBER = "smsnumber";
+    final String   SMS_NUMBER = "smsnumber";
     //短信下发间隔过短
-    String SMS_INTERVAL_SHORT ="shortintervalsms";
+    final  String SMS_INTERVAL_SHORT ="shortintervalsms";
     //短信频次正常
-    String SMS_NORMAL ="normal";
+    final String SMS_NORMAL ="normal";
 
     //免短信检查
     String SMS_FREE ="0";

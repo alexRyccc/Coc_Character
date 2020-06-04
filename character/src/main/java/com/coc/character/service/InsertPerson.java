@@ -1,5 +1,7 @@
 package com.coc.character.service;
 
+import com.coc.character.mapper.PersonMapper;
+import com.coc.character.pojo.Person;
 import com.coc.character.pojo.Userperson;
 
 /**
@@ -8,9 +10,16 @@ import com.coc.character.pojo.Userperson;
  * @desc
  */
 public interface InsertPerson {
-    /**
-     *新增用户
-     * @mbg.generated
-     */
+
     int insertSelective(Userperson record);
+
+
+     Person personMapper(Person record);
+
+     int getNumber(int id);
+
+
+    Userperson selectUserPerson(Userperson record);
+
+    Person getselect();
 }

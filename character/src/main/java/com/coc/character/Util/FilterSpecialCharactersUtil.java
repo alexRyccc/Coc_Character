@@ -1,5 +1,6 @@
 package com.coc.character.Util;
 
+import com.coc.character.Util.String.StringUtil;
 import com.coc.character.Util.enums.ParamHelper;
 
 /**

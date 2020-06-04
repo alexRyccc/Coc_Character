@@ -1,6 +1,8 @@
 package com.coc.character.controller;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @author ran_ych
@@ -11,6 +13,7 @@ public class Demo1 {
     byte[] bytes =new byte[1024*1024];
 
     public static void main(String[] args) {
+
         ArrayList<Demo1> list =new ArrayList<>();
         int count =0;
         while (true){

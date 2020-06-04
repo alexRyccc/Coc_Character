@@ -1,4 +1,4 @@
-package com.coc.character.Util;
+package com.coc.character.Util.String;
 
 /**
  * @author ran_ych

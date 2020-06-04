@@ -81,7 +81,7 @@
     pistol, crossbow, gunnery, diving, throwing, jump, beasttraining, history, shorthand,
     falsify, lipread, maintenance, cooking, fire, farming, makesex, musictheory, puzzle,
     mothertongue, ohterone, othertwo, otherthree, otherfour, otherfive, othersix
-    FROM USER A ,skill B
+    FROM user A ,skill B
     where A.userid = #{userid,jdbcType=VARCHAR}
     and A.name = #{name,jdbcType=VARCHAR}
        AND A.userid =B.userid
@@ -252,4 +252,28 @@
       age = #{age,jdbcType=INTEGER}
     where userid = #{userid,jdbcType=VARCHAR}
   </update>
+
+  <select id="getselect"  resultMap="BaseResultMap">
+   SELECT      birthplace,nationality,A.userid, hp, mp, A.name,potential, interest, shin, swim, spy, listen, libaray, negotiate,
+   str, agl, edu, phy, cha, vol, bod, bra, luck, sex, age,
+    occultism, cthulhu, drive, combat, gun, san, currenthp, currentmp, currentsan, profession,
+    accountant, anthropology, evaluate, archeology, charm, computer, credit, dress, dodge,
+    electrical, mechanology, law, locksmith, sneak, medical, B.FOREIGN, pilot, psychology,
+    trace, aid, heavy, steal, threaten, chemistry, trick, psychiatrist, naturalist, astronomy,
+    phytology, cryptology, meteorology, engineering, geology, zoology, sword, spear,
+    pistol, crossbow, gunnery, diving, throwing, jump, beasttraining, history, shorthand,
+    falsify, lipread, maintenance, cooking, fire, farming, makesex, musictheory, puzzle,
+    mothertongue, ohterone, othertwo, otherthree, otherfour, otherfive, othersix
+    FROM user A ,skill B
+    where
+        A.userid =B.userid
+  </select>
+
+  <select id="getNumber"  resultType="java.lang.Integer">
+   SELECT     count(*)
+    FROM user A ,skill B
+    where
+        A.userid =B.userid
+        and A.userid =#{userid,jdbcType=VARCHAR}
+  </select>
 </mapper>

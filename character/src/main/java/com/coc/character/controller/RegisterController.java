@@ -3,20 +3,24 @@ package com.coc.character.controller;
 import com.coc.character.Util.CopyUtils;
 import com.coc.character.Util.enums.SMSHelper;
 import com.coc.character.ext.service.InsertPersonExt;
+import com.coc.character.pojo.Person;
 import com.coc.character.pojo.PhoneCheak;
 import com.coc.character.pojo.Userperson;
+import com.coc.character.pojo.req.PersonReq;
 import com.coc.character.pojo.req.UserPersonReq;
 import com.coc.character.ext.service.SmsServiceExt;
+import com.coc.character.pojo.resp.PersonResp;
+import com.coc.character.pojo.resp.UserPersonResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author ran_ych
@@ -26,18 +30,19 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/register")
 public class RegisterController {
-
     @Resource(name = "insertpersonextimpl")
     private InsertPersonExt insertPersonExt;
+
 
     @Resource(name ="smsserviceimpl")
     private SmsServiceExt smsServiceExt;
 
-    private static Logger logger = LoggerFactory.getLogger(queryController.class);
+    private static Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
     @PostMapping("/createnew")
     public ResponseEntity<?> createCharacter(@RequestBody UserPersonReq register){
         Userperson user = CopyUtils.convertObject(register, Userperson.class);
+
         int result =insertPersonExt.insertSelective(user);
         ResponseEntity<String> res=new ResponseEntity<String>("注册成功", HttpStatus.OK);
 
@@ -56,7 +61,7 @@ public class RegisterController {
      * 短信下发注册
      */
     @PostMapping ("/phone")
-    private ResponseEntity<?> getPhone(@RequestBody UserPersonReq register){
+    public ResponseEntity<?> getPhone(@RequestBody UserPersonReq register){
 
         PhoneCheak user = CopyUtils.convertObject(register, PhoneCheak.class);
         ResponseEntity<String> res=new ResponseEntity<String>("短信下发成功", HttpStatus.OK);
@@ -97,7 +102,7 @@ public class RegisterController {
      * 短信下发登录
      */
     @PostMapping ("/smssign")
-    private ResponseEntity<?> SignPerson (@RequestBody UserPersonReq register){
+    public ResponseEntity<?> SignPerson (@RequestBody UserPersonReq register){
         Userperson user = CopyUtils.convertObject(register, Userperson.class);
         int result =insertPersonExt.insertSelective(user);
         ResponseEntity<String> res=new ResponseEntity<String>("注册成功", HttpStatus.OK);
@@ -111,5 +116,44 @@ public class RegisterController {
 
         return res;
     }
+
+    @PostMapping ("/person")
+    public ResponseEntity<PersonResp> getPerson(@Validated @RequestBody PersonReq personReq){
+        Person person = CopyUtils.convertObject(personReq,Person.class);
+        //将person的值从数据库获取
+        person = insertPersonExt.selectByPrimaryKey(person);
+        //将person转为传出的PersonResp
+        PersonResp personResp =CopyUtils.convertObject(person,PersonResp.class);
+        ResponseEntity<PersonResp>  resp =new ResponseEntity<PersonResp> (personResp, HttpStatus.OK);
+        return  resp;
+    }
+
+    /**
+     * 登录账号
+     */
+    @PostMapping ("/sign")
+    public ResponseEntity<?> getPerson(@Validated @RequestBody UserPersonReq personReq, HttpServletRequest request, HttpServletResponse response){
+        Userperson person = CopyUtils.convertObject(personReq, Userperson.class);
+        //将person的值从数据库获取
+        person = insertPersonExt.selectUserPerson(person);
+        //将person转为传出的PersonResp
+        UserPersonResp UserPersonResp =CopyUtils.convertObject(person,UserPersonResp.class);
+        ResponseEntity  resp;
+        if (UserPersonResp.getUsername().equals(personReq.getUsername())){
+            resp =new ResponseEntity<UserPersonResp> (UserPersonResp, HttpStatus.OK);
+        }else{
+
+            resp =new ResponseEntity<String> ("账号或密码错误，请重新输入", HttpStatus.OK);
+        }
+        return  resp;
+    }
+    //通过token查询用户信息
+    @RequestMapping("/token/{token}")
+    @ResponseBody
+    public Object getUserByToken(@PathVariable String token,String callback){
+        // Userperson userperson= insertPersonExt.getByToken(token);
+        return null;
+    }
+
 
 }

@@ -174,6 +174,29 @@
 <script src="layer/2.4/layer.js"></script>
 <script type="text/javascript" src="js/jquery.serializejson.min.js"></script>
 <script >
+    var userToken = window.localStorage.getItem("yq_token");
+
+    $.ajax({
+
+        headers: {
+
+            "token":userToken//此处放置请求到的用户token
+
+        },
+
+        type: "get",
+
+        url: "http://119.254.155.151:8768/yq/important/data?schemeId=247248",//请求url
+
+        contentType: "application/x-www-form-urlencoded",
+
+        success: (data) => {
+
+        }
+
+    })
+
+
 
 
     $(function(){
@@ -212,7 +235,7 @@
         console.log("字符串"+pstr)
         $.ajax({
             method:'post',
-            url:'/query/person',
+            url:'/register/person',
             data:pstr,
             success:function(data){
                 var data= eval('(' + data + ')');

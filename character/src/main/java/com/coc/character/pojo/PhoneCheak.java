@@ -1,7 +1,7 @@
 package com.coc.character.pojo;
 
 import com.coc.character.Util.DateTimeUtils;
-import com.coc.character.Util.StringUtil;
+import com.coc.character.Util.String.StringUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

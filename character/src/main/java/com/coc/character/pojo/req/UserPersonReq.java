@@ -9,6 +9,35 @@ public class UserPersonReq {
     private String username;
     private String password;
     private String phone;
+    private String phones;
+    private String save;
+    private String token;
+
+
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getSave() {
+        return save;
+    }
+
+    public void setSave(String save) {
+        this.save = save;
+    }
+
+    public String getPhones() {
+        return phones;
+    }
+
+    public void setPhones(String phones) {
+        this.phones = phones;
+    }
 
     public String getUsername() {
         return username;

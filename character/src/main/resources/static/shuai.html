@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COC人物车卡</title>
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+
+    <script type="text/javascript" src="layui/layui.js"></script>
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>创建人物</legend>
+</fieldset>
+
+
+<form action="" id="form1">
+    <div class="layui-form-item">
+        <label class="layui-form-label">你的名字</label>
+        <div class="layui-input-block">
+            <input type="text" name="name1"	id="name1" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">TA的名字</label>
+        <div class="layui-input-block">
+            <input type="text" name="name2"	id="name2" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">你的生日</label>
+        <div class="layui-input-block">
+            <input type="date" name="date1"	id="date1" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">TA的生日</label>
+        <div class="layui-input-block">
+            <input type="date" name="date2"	id="date2" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">居住地</label>
+        <div class="layui-input-block">
+            <input type="text" name="local"	id="local" class="layui-input">
+        </div>
+    </div>
+
+
+
+
+    <button id="btn" class="layui-btn layui-btn-normal" type="button">请薛定谔出手</button>
+
+</form>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>姻缘小卡片</legend>
+</fieldset>
+
+<div>
+    <h3><fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;color: #FF5722">个人信息</fieldset></h3>
+</div>
+
+
+<table id="tb1" class="layui-table">
+    <thead id="thead1">
+    <tr>
+        <th>你的名字</th>
+        <th>TA的名字</th>
+        <th>相合分数</th>
+        <th>评语</th>
+    </tr>
+
+    </thead>
+    <tbody id="tbody1">
+
+    </tbody>
+</table>
+
+</table>
+
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="layer/2.4/layer.js"></script>
+<script type="text/javascript" src="js/jquery.serializejson.min.js"></script>
+<script >
+
+    $(function(){
+
+        $("#btn").on('click',function(e){
+            var obj=$('#form1').serializeJSON();//将表单中元素转换为JSON对象
+            var pstr=JSON.stringify(obj);//JSON字符串
+            console.log("字符串"+pstr)
+            $.ajax({
+                method:'post',
+                url:'/xde/create',
+                data:pstr,
+                success:function(data){
+                    alert("薛定谔计算成功")
+                    var data= eval('(' + data + ')');
+
+                    var tr='';
+
+                    tr+=`
+					<tr>
+					<td>${data.name1}</td>
+					<td>${data.name2}</td>
+					<td>${data.cgl}</td>
+					<td>${data.jielun}</td>
+
+					</tr>
+					`
+
+                    $('#tbody1').append(tr);
+
+
+                },
+                dataType:'text',
+                contentType:'application/json',
+                xhrFileds:{
+                    withCredentials:true
+                }
+            });
+        })
+
+    });
+    function query() {
+        var obj=$('#form1').serializeJSON();//将表单中元素转换为JSON对象
+        var pstr=JSON.stringify(obj);//JSON字符串
+        console.log("字符串"+pstr)
+        $.ajax({
+            method:'post',
+            url:'/xde/person',
+            data:pstr,
+            success:function(data){
+                var data= eval('(' + data + ')');
+
+                var tr='';
+
+                tr+=`
+					<tr>
+					<td>${data.name1}</td>
+					<td>${data.name2}</td>
+					<td>${data.sex}</td>
+					<td>${data.sex}</td>
+					<td>${data.profession}</td>
+					<td>${data.nationality}</td>
+					<td>${data.birthplace}</td>
+					<td>${data.potential}</td>
+					<td>${data.interest}</td>
+					</tr>
+					`
+
+                $('#tbody1').append(tr);
+
+
+
+            },
+            dataType:'text',
+            contentType:'application/json',
+            xhrFileds:{
+                withCredentials:true
+            }
+        });
+    }
+    function btn_disabled() {
+        $(document).ready(function() {
+            $("#btn").attr("disabled","true");
+            $("#btn").css({'background-color' : 'gray'});
+
+        });
+    }
+
+
+</script>
+
+</body>
+</html>
